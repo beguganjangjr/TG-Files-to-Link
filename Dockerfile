@@ -10,8 +10,13 @@ RUN if [ "$(uname -m)" = "aarch64" ] ; then \
     sed -i 's/main/main non-free/g' /etc/apt/sources.list && \
     apt-get -qq update && \
      mkdir /app/ && chmod 777 /app/
-#COPY requirements.txt .
+RUN pip3 install --upgrade pip setuptools
 
+# copy the dependencies file to the working directory
+COPY requirements.txt .
+
+# install dependencies
+#RUN pip install -r requirements.txt
 # install dependencies
 #RUN pip3 install --no-cache-dir tgfilestream
 
