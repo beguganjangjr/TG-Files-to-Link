@@ -17,7 +17,7 @@ RUN if [ "$(uname -m)" = "aarch64" ] ; then \
 
 # copy the content of the local src directory to the working directory
 COPY . .
-RUN pip3 install --no-cache-dir tgfilestream
+RUN pip3 install --no-cache-dir requirements.txt
 
 RUN apt-get purge -yqq gcc && apt-get -y autoremove && rm -rf /var/lib/apt/lists/* && apt-get clean
 # Starting Worker
